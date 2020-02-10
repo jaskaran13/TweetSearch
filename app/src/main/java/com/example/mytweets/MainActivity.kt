@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewmodel: TweetViewModel
-    var ProgressBar:ProgressBar?=null
+    var progressBar:ProgressBar?=null
     var Search_text:EditText?=null
 
 
@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
 
         val tweet_list = findViewById(R.id.tweeter_list) as RecyclerView
         viewmodel = ViewModelProviders.of(this).get(TweetViewModel::class.java)
-        ProgressBar=findViewById(R.id.progressBar)
+        progressBar=findViewById(R.id.progressBar)
         Search_text=findViewById(R.id.Search_text)
-        ProgressBar?.visibility=View.GONE
+        progressBar?.visibility=View.GONE
 
        tweet_list.layoutManager= LinearLayoutManager(this)
         val divider = DividerItemDecoration(tweeter_list.getContext(), DividerItemDecoration.VERTICAL)
@@ -45,14 +45,14 @@ class MainActivity : AppCompatActivity() {
         Search_text?.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 viewmodel.OnClick(Search_text?.text.toString())
-                ProgressBar?.visibility=View.VISIBLE
+                progressBar?.visibility=View.VISIBLE
                 val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm?.hideSoftInputFromWindow(Search_text?.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
             }
             true
         }
         viewmodel.resLive.observe(this, Observer {
-            ProgressBar?.visibility=View.GONE
+            progressBar?.visibility=View.GONE
             tweet_list.setAdapter(MyListAdapter(it,this))
         })
     }
