@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="leftmargin">10dp</dimen>
+    <dimen name="main_startmargin_margin">8dp</dimen>
+    <dimen name="main_endmargin_margin">8dp</dimen>
+    <dimen name="main_topmargin_margin">8dp</dimen>
+    <dimen name="main_topMargin_recyclerView">10dp</dimen>
+    <dimen name="main_name_topmargin">10dp</dimen>
+    <dimen name="main_name_endmargin">5dp</dimen>
+    <dimen name="main_Name_TextSize">18sp</dimen>
+    <dimen name="main_Screenname_endmargin">5dp</dimen>
+    <dimen name="main_Screenname_startmargin">10dp</dimen>
+    <dimen name="main_Screenname_TextSize">12sp</dimen>
+    <dimen name="main_Text_startmargin">10dp</dimen>
+    <dimen name="main_Text_topmargin">8dp</dimen>
+    <dimen name="main_Text_endtmargin">5dp</dimen>
+    <dimen name="main_Text_Bottommargin">10dp</dimen>
+    <dimen name="main_Text_TextSize">15sp</dimen>
+    <dimen name="main_Image_startmargin">10dp</dimen>
+    <dimen name="main_Image_topmargin">10dp</dimen>
+    <dimen name="main_width_image">70dp</dimen>
+    <dimen name="main_height_image">70dp</dimen>
+</resources>

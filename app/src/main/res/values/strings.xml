@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">myTweets</string>
+    <string name="main_hint_editView">Search here......</string>
+    <string name="main_ContentDes_image">TweetImage</string>
+</resources>
