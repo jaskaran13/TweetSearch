@@ -28,22 +28,21 @@ class TweetViewModel :ViewModel(){
         val urlApiSecret: String = URLEncoder.encode(Secret_Key, "UTF-8")
         val combined = "$urlApiKey:$urlApiSecret"
         val base64Encoded = Base64.encodeToString(combined.toByteArray(), Base64.NO_WRAP)
-        val logging = HttpLoggingInterceptor()
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-        val httpClient = OkHttpClient.Builder()
-        httpClient.addInterceptor(logging)
 
-        Retrofit.Builder().client(httpClient.build())
-        TweetApi.retrofitService.createUser(auth = "Basic "+base64Encoded)?.enqueue(object : Callback<TwitterUser?> {
+        TweetApiObject.retrofitService.createUser(auth = "Basic " + base64Encoded)
+            ?.enqueue(object : Callback<TwitterUser?> {
             override fun onFailure(call: Call<TwitterUser?>, t: Throwable) {
-                Log.i("main","$t Cant connect")
+                Log.i("main", "$t Cant connect help")
             }
             override fun onResponse(call: Call<TwitterUser?>, response: Response<TwitterUser?>) {
                 var usres = response.body()
                 var user = usres?.access_token
                 Log.i("main","$user")
 
-                TweetApi.retrofitService.getUser(auth = "Bearer "+user.toString(),q = Search_text)?.enqueue(object : Callback<UserDetails> {
+                TweetApiObject.retrofitService.getUser(
+                    auth = "Bearer " + user.toString(),
+                    q = Search_text
+                )?.enqueue(object : Callback<UserDetails> {
                     override fun onFailure(call: Call<UserDetails>, t: Throwable) {
                         Log.i("main","Cant Get Data")
                     }
